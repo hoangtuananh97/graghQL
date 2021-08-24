@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "94e7827f-70a1-40f4-b8af-13870c366c8c",
+		"name": "TestGraghQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetDetail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getIngredientById($id: String!){\r\n  getIngredientById(id: $id) {\r\n    id\r\n    name\r\n  }\r\n}",
+						"variables": "{\r\n    \"id\": \"SW5ncmVkaWVudFR5cGU6Nw==\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{url}}/graphql/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query allIngredients{\r\n    allIngredients{\r\n        id\r\n        name\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/graphql/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateIngredient($name: String!, $notes: String, $category_id: Int!){\r\n    createIngredientWithMutation(name: $name, notes: $notes, categoryId: $category_id){\r\n        ingredient{\r\n            id\r\n            name\r\n            category{\r\n                id\r\n                name\r\n            }\r\n        }\r\n    }\r\n}",
+						"variables": "{\r\n    \"name\": \"abcbbbaaa\",\r\n    \"notes\": \"abcaaa\",\r\n    \"category_id\": 24\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{url}}/graphql/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation UpdateIngredient($id: ID!, $name: String, $notes: String, $category_id: Int){\r\n    updateIngredientWithMutation(id:$id, name: $name, notes: $notes, categoryId: $category_id){\r\n        ingredient{\r\n            id\r\n            name\r\n            category{\r\n                id\r\n                name\r\n            }\r\n        }\r\n    }\r\n}",
+						"variables": "{\r\n    \"id\": \"SW5ncmVkaWVudFR5cGU6Nw==\",\r\n    \"name\": \"tuan anh\",\r\n    \"notes\": \"abc\",\r\n    \"category_id\": 100\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{url}}/graphql/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation DeleteIngredient($id: ID!){\r\n    deleteIngredientWithMutation(id:$id){\r\n        message\r\n    }\r\n}",
+						"variables": "{\r\n    \"id\": \"SW5ncmVkaWVudFR5cGVNdXRhdGlvbjo0\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{url}}/graphql/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
